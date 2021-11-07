@@ -28,7 +28,7 @@ general workflow:
 export AWS_ID=$(aws sts get-caller-identity --query Account --output text) && export AWS_REGION=$(aws configure get region &&--output text) && export AWS_ECR=flask-docker-twingate
 - run the shell script: setup.sh(this will connect and login to aws ecr)  
 - build the image 
-- after docker is build, enter the app folder & run:
+- after docker is build, from the app folder & run:
 docker tag $AWS_ECR:latest $AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR:latest
 - push the image to ecr repository 
 docker push $AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR:latest
