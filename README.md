@@ -57,4 +57,3 @@ terraform apply
 - after the run, terraform will output the alb url, use it.
 
 
-docker build
