@@ -24,13 +24,15 @@ general workflow:
 
 
 (docker)
-- run this command in terminal: 
+- run this command in terminal:
+
 export AWS_ID=$(aws sts get-caller-identity --query Account --output text) && export AWS_REGION=$(aws configure get region &&--output text) && export AWS_ECR=flask-docker-twingate
-- run the shell script: setup.sh(this will connect and login to aws ecr)  
-- build the image 
-- after docker is build, from the app folder & run:
+
+- run the shell script: setup.sh (this will connect and login to aws ecr)  
+- from the app folder, run docker build
+- tag the image:
 docker tag $AWS_ECR:latest $AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR:latest
-- push the image to ecr repository 
+- push the image to ecr repository:
 docker push $AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR:latest
 
 
@@ -54,3 +56,4 @@ terraform apply
 - after the run, terraform will output the alb url, use it.
 
 
+docker build
