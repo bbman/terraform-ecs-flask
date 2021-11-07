@@ -40,9 +40,13 @@ docker push $AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_ECR:latest
 - once the image was uploded to ecr, enter the terraform directory and create a file "credentials", insert:
 
 [default]
+
 aws_access_key_id=<access_key>
+
 aws_secret_access_key=<secret_access_key>
+
 region=us-west-2
+
 output=json
 
 - set the access key & secret access key to the credentials file
